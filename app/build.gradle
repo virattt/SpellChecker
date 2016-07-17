@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.virat.lanternspellchecker"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Unit Test Dependencies
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    testCompile 'junit:junit:4.12'
+    testCompile('com.squareup.assertj:assertj-android:1.1.1') {
+        exclude module: 'support-annotations'
+    }
+    testCompile 'org.robolectric:robolectric:3.0'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.0.0-beta1'
+
+}
